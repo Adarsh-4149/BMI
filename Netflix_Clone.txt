@@ -1,0 +1,166 @@
+NETFLEX CLONE
+                                 INDEX.JS
+
+import React from "react";
+import ReactDOM from "react-dom";
+import Card from "./Cards";
+import "./index.css";
+import Sdata from "./Sdata";
+
+ReactDOM.render(<>
+<h3 className="heading_style"> Top Netfilx Series </h3>
+<Card 
+    imgsrc={Sdata[0].imgsrc}
+    title={Sdata[0].title}
+    Sname ={Sdata[0].Sname}
+    link={Sdata[0].link}
+    
+ 
+/>
+<Card 
+     imgsrc={Sdata[1].imgsrc}
+    title={Sdata[1].title}
+    Sname ={Sdata[1].Sname}
+    link={Sdata[1].link}
+ 
+/><Card 
+     imgsrc={Sdata[2].imgsrc}
+    title={Sdata[2].title}
+    Sname ={Sdata[2].Sname}
+    link={Sdata[2].link}
+/>
+    
+   </> ,document.getElementById("root")
+);
+
+
+
+                                   Sdata.jsx
+
+const Sdata = [
+{
+    imgsrc : "https://wallpapercave.com/wp/wp4056410.jpg",
+    title : "Netfilx",
+    Sname : "Wednesday",
+    link : "https://www.netflix.com/in/title/81231974 ",
+},
+{
+    imgsrc: "https://wallpapercave.com/dwp2x/wp10590982.jpg",
+    title: "Netfilx",
+    Sname : "Emily in Paris",
+    link: "https://www.netflix.com/in/title/81037371",
+},
+{
+    imgsrc: "https://wallpapercave.com/wp/wp1917154.jpg",
+    title: "Netfilx",
+    Sname : "Stranger Things",
+    link: "https://www.netflix.com/in/title/81396545",
+}
+];
+export default Sdata;
+
+                                  Cards.jsx
+
+import React from "react";
+function Card(props){
+    console.log(props);
+    return(<>
+        <div className ="cards" >
+        <div className ="card" >
+        <img src={props.imgsrc} alt ="My Pic" className ="card-img"/>
+        <div className="card-info">
+        <span className ="card_category">{props.title} </span>
+        <h3 className="card-title">{props.Sname}</h3>
+        <a href = {props.link}target="_blank">
+            <button> Watch Now</button>
+        </a>
+        </div> 
+        </div>
+        </div>
+    
+        </>)
+}
+export default Card ;
+
+
+
+                          index.css
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  background-color: #d2dbdd;
+
+}
+.heading_style {
+  padding: 30px 0;
+  text-align: center;
+  font-family: "Raleway",sans-serif;
+  text-transform: uppercase;
+  font-size: 60px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: #0d0404;
+  background-color: rgb(246, 241, 241);
+  font-size: 1.9rem;
+  margin-bottom: 30px;
+}
+.cards {
+  width: 100%;
+  height: auto;
+
+}
+.cards {
+  margin: 6%;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+  background-color: #fff;
+  width: 21.25%;
+  border-radius: 12px;
+  box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0);
+  float: left;
+}
+.card-info {
+  background-color: white;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  padding: 24px 20px 20px 16px ;
+  width: 500px;
+  
+}
+.card-img {
+  /* border: 1px solid rgb(164, 0, 0); */
+  border-radius: 4px;
+  /* padding: 5px; */
+  width: 500px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  }
+.card_category {
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color:gray;
+  background-color: white;
+
+}
+.card-title {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-family: "cursive";
+  background-color: white;
+  text-transform: capitalize;
+
+}
+button {
+  padding: 5px 8px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 500;
+  outline: none;
+  border: 3px solid black;
+  background-color: white;
+  color: #868686;
+  cursor: pointer;
+}
